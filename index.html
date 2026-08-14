@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Для тебя ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #fff5f8;
+            color: #3b2630;
+            overflow-x: hidden;
+        }
+
+        /* Фоновые сердечки */
+
+        .hearts {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            font-size: 20px;
+            opacity: 0.18;
+            animation: float 10s linear infinite;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(2) {
+            left: 30%;
+            animation-delay: 3s;
+        }
+
+        .heart:nth-child(3) {
+            left: 55%;
+            animation-delay: 6s;
+        }
+
+        .heart:nth-child(4) {
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            to {
+                transform: translateY(-110vh) rotate(25deg);
+            }
+        }
+
+        /* Главный экран */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            z-index: 1;
+            background:
+                radial-gradient(circle at top left, #ffd6e4, transparent 35%),
+                radial-gradient(circle at bottom right, #ffc2d8, transparent 35%),
+                #fff5f8;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            animation: appear 1.4s ease;
+        }
+
+        .small {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 12px;
+            color: #b65c7b;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(48px, 12vw, 100px);
+            line-height: 0.95;
+            font-weight: 700;
+            letter-spacing: -4px;
+            color: #351d27;
+        }
+
+        .hero p {
+            margin-top: 30px;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #795765;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 16px 30px;
+            border-radius: 50px;
+            background: #e9799c;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 12px 30px rgba(210, 91, 130, 0.25);
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 35px rgba(210, 91, 130, 0.35);
+        }
+
+        /* Секции */
+
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 25px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(35px, 7vw, 60px);
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            color: #351d27;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #98727f;
+            margin-bottom: 60px;
+        }
+
+        /* Карточки */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.75);
+            border: 1px solid rgba(220,120,150,0.15);
+            border-radius: 28px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(90, 35, 55, 0.06);
+            transition: 0.35s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card .emoji {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #896873;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* Большой текст */
+
+        .letter {
+            background: #351d27;
+            color: white;
+            border-radius: 40px;
+            padding: 70px 45px;
+            text-align: center;
+            box-shadow: 0 25px 70px rgba(53,29,39,0.2);
+        }
+
+        .letter .label {
+            color: #f49ab7;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+            margin-bottom: 30px;
+        }
+
+        .letter h2 {
+            font-size: clamp(32px, 6vw, 55px);
+            margin-bottom: 30px;
+            letter-spacing: -2px;
+        }
+
+        .letter p {
+            max-width: 650px;
+            margin: auto;
+            color: #e8cbd5;
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        /* Фото */
+
+        .photo-section {
+            text-align: center;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            max-width: 650px;
+            height: 420px;
+            margin: 40px auto 0;
+            border-radius: 35px;
+            background:
+                linear-gradient(135deg, #ffd2e0, #f59bb8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            box-shadow: 0 20px 60px rgba(200,90,125,0.2);
+        }
+
+        /* Финал */
+
+        .final {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #ffe6ee;
+        }
+
+        .final h2 {
+            font-size: clamp(40px, 9vw, 75px);
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        .final p {
+            color: #805665;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .big-heart {
+            font-size: 55px;
+            margin-bottom: 25px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Телефон */
+
+        @media (max-width: 700px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .letter {
+                padding: 50px 25px;
+                border-radius: 30px;
+            }
+
+            .photo-placeholder {
+                height: 330px;
+            }
+
+            section {
+                padding: 75px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hearts">
+        <div class="heart">♡</div>
+        <div class="heart">♡</div>
+        <div class="heart">♡</div>
+        <div class="heart">♡</div>
+    </div>
+
+    <!-- Главный экран -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="small">
+                кое-что для тебя
+            </div>
+
+            <h1>
+                Аня,<br>
+                это тебе.
+            </h1>
+
+            <p>
+                Иногда некоторые вещи невозможно сказать
+                одним сообщением.
+            </p>
+
+            <a href="#story" class="button">
+                Открыть
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- История -->
+
+    <section id="story">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Почему ты?
+            </h2>
+
+            <p class="section-subtitle">
+                Наверное, потому что некоторые люди просто остаются внутри нас.
+            </p>
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="emoji">🌸</div>
+
+                    <h3>
+                        Твоя улыбка
+                    </h3>
+
+                    <p>
+                        Есть вещи, которые запоминаются
+                        намного сильнее любых слов.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">💗</div>
+
+                    <h3>
+                        Наши моменты
+                    </h3>
+
+                    <p>
+                        Даже самые обычные дни становятся
+                        особенными, если рядом правильный человек.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">✨</div>
+
+                    <h3>
+                        Ты сама
+                    </h3>
+
+                    <p>
+                        Просто потому что ты — это ты.
+                        И этим уже всё сказано.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Письмо -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="letter">
+
+                <div class="label">
+                    несколько слов
+                </div>
+
+                <h2>
+                    Я не знаю,<br>
+                    как правильно.
+                </h2>
+
+                <p>
+                    Поэтому просто скажу честно.
+                    Ты стала человеком, который занял
+                    очень большое место в моей жизни.
+                    И сколько бы времени ни прошло,
+                    некоторые воспоминания всё равно
+                    остаются особенными.
+                    <br><br>
+                    Этот сайт не должен ничего от тебя требовать.
+                    Он просто существует.
+                    Как маленькое напоминание о том,
+                    что когда-то между двумя людьми
+                    было что-то настоящее.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Фотография -->
+
+    <section class="photo-section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Наш момент
+            </h2>
+
+            <p class="section-subtitle">
+                Здесь позже появится фотография.
+            </p>
+
+            <div class="photo-placeholder">
+                Здесь будет ваше фото ❤️
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Финал -->
+
+    <section class="final">
+
+        <div>
+
+            <div class="big-heart">
+                ♡
+            </div>
+
+            <h2>
+                Спасибо,<br>
+                что была.
+            </h2>
+
+            <p>
+                Иногда человек становится частью истории,
+                которую невозможно забыть.
+            </p>
+
+        </div>
+
+    </section>
+
+</body>
+</html>
