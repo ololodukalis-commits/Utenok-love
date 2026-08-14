@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Давай сначала? ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 10% 10%, #ffdce9, transparent 32%),
+        radial-gradient(circle at 90% 90%, #f7c8da, transparent 32%),
+        #fff8fb;
+    color: #4d2938;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.page {
+    min-height: 100vh;
+    padding: 22px 15px 55px;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+}
+
+h1, h2, h3, .serif {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 10px;
+    color: #bb718a;
+    margin-bottom: 18px;
+}
+
+/* =========================
+   ПЛАВАЮЩИЕ СЕРДЕЧКИ
+========================= */
+
+.floating-heart {
+    position: fixed;
+    bottom: -50px;
+    color: #df82a2;
+    opacity: .18;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .2;
+    }
+
+    to {
+        transform: translateY(-115vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   ПЕРВАЯ СТРАНИЦА
+========================= */
+
+#page1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-card {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 760px;
+
+    padding: 45px 25px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,.68);
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 38px;
+
+    box-shadow:
+        0 30px 100px rgba(160,70,105,.13),
+        inset 0 1px 0 white;
+
+    backdrop-filter: blur(16px);
+
+    animation: appear .9s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.small-heart {
+    width: 62px;
+    height: 62px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ffe0eb;
+    color: #d46c90;
+
+    font-size: 28px;
+
+    box-shadow: 0 12px 30px rgba(210,100,140,.15);
+}
+
+.intro-card h1 {
+    font-size: clamp(55px, 12vw, 100px);
+    line-height: .82;
+    letter-spacing: -4px;
+    color: #42222f;
+    margin-bottom: 35px;
+}
+
+.intro-card h1 span {
+    color: #d56e91;
+}
+
+.intro-text {
+    max-width: 660px;
+    margin: auto;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    line-height: 1.55;
+
+    color: #684352;
+}
+
+.quote {
+    margin: 30px auto;
+    padding: 23px 10px;
+
+    border-top: 1px solid #efbfd1;
+    border-bottom: 1px solid #efbfd1;
+
+    font-size: 26px;
+    line-height: 1.4;
+
+    color: #542b3a;
+}
+
+.love-line {
+    margin: 34px 0;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    line-height: 1.3;
+
+    color: #c75d82;
+}
+
+.invite-title {
+    margin-bottom: 20px;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 39px;
+
+    color: #4b2937;
+}
+
+.main-button {
+    border: none;
+    border-radius: 50px;
+
+    padding: 18px 34px;
+
+    background: linear-gradient(135deg, #e285a4, #c95e83);
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 15px 35px rgba(201,94,131,.25);
+
+    transition: .3s;
+}
+
+.main-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 20px 42px rgba(201,94,131,.35);
+}
+
+/* =========================
+   КНОПКА НЕТ
+========================= */
+
+.choice-area {
+    position: relative;
+    height: 80px;
+    margin-top: 15px;
+}
+
+.no-button {
+    position: fixed;
+
+    border: none;
+
+    padding: 8px 14px;
+
+    background: transparent;
+
+    color: #a77987;
+
+    font-size: 12px;
+
+    cursor: default;
+
+    z-index: 99999;
+
+    transition:
+        left .12s ease,
+        top .12s ease;
+    
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.hint {
+    position: absolute;
+
+    width: 100%;
+
+    left: 0;
+    bottom: 0;
+
+    color: #b86a83;
+
+    font-size: 10px;
+}
+
+/* =========================
+   ВТОРАЯ СТРАНИЦА
+========================= */
+
+#page2 {
+    padding-top: 55px;
+}
+
+.page-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.page-heading h2 {
+    font-size: clamp(52px, 10vw, 78px);
+    line-height: .85;
+
+    color: #442331;
+
+    margin-bottom: 18px;
+}
+
+.page-heading p {
+    color: #8e6170;
+    font-size: 13px;
+}
+
+.selection-section {
+    margin-bottom: 40px;
+}
+
+.selection-title {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 16px;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+
+    color: #4b2937;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 11px;
+}
+
+.option {
+    border: 1px solid #efd0dc;
+
+    background: rgba(255,255,255,.68);
+
+    color: #633d4c;
+
+    border-radius: 21px;
+
+    padding: 17px;
+
+    text-align: left;
+
+    font-size: 13px;
+    line-height: 1.4;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+    box-shadow:
+        0 8px 25px rgba(110,50,70,.04);
+}
+
+.option:hover {
+    transform: translateY(-2px);
+    border-color: #df91ac;
+}
+
+.option.selected {
+    background: linear-gradient(135deg, #fbdce7, #f7cedd);
+
+    border-color: #d97596;
+
+    color: #542639;
+
+    box-shadow:
+        0 8px 25px rgba(217,117,150,.17),
+        inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+.option.selected::after {
+    content: "✓";
+
+    float: right;
+
+    color: #c65d80;
+
+    font-weight: 700;
+}
+
+.emoji {
+    font-size: 21px;
+    margin-right: 6px;
+}
+
+/* =========================
+   ДАТА И ВРЕМЯ
+========================= */
+
+.date-time-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+
+    padding: 21px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,.68);
+
+    border: 1px solid #efd0dc;
+}
+
+.date-time-box label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 10px;
+
+    color: #a06c7c;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.date-time-box input {
+    width: 100%;
+
+    border: 1px solid #ecc8d5;
+
+    border-radius: 14px;
+
+    padding: 14px;
+
+    background: #fffafd;
+
+    color: #57303f;
+
+    font-family: inherit;
+}
+
+.confirm-area {
+    text-align: center;
+
+    margin-top: 48px;
+}
+
+.required-note {
+    margin-top: 13px;
+
+    color: #a77987;
+
+    font-size: 10px;
+}
+
+/* =========================
+   ТРЕТЬЯ СТРАНИЦА
+========================= */
+
+#page3 {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.letter {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 730px;
+
+    padding: 52px 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.95),
+            rgba(255,244,248,.97)
+        );
+
+    border-radius: 36px;
+
+    box-shadow:
+        0 30px 100px rgba(120,50,75,.12);
+
+    border: 1px solid rgba(225,160,180,.3);
+
+    text-align: center;
+}
+
+.letter-top {
+    color: #d27191;
+
+    font-size: 31px;
+
+    margin-bottom: 15px;
+}
+
+.letter h2 {
+    font-size: clamp(53px, 11vw, 80px);
+
+    line-height: .82;
+
+    color: #442331;
+
+    margin-bottom: 30px;
+}
+
+.letter-intro {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 23px;
+
+    line-height: 1.5;
+
+    color: #684352;
+}
+
+.summary {
+    margin: 30px auto;
+
+    padding: 22px;
+
+    border-radius: 25px;
+
+    background: #fff0f5;
+
+    text-align: left;
+}
+
+.summary-row {
+    padding: 11px 0;
+
+    border-bottom: 1px solid #f4d5df;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+.summary-row:last-child {
+    border-bottom: none;
+}
+
+.summary-row strong {
+    color: #c55f81;
+}
+
+.final-message {
+    max-width: 600px;
+
+    margin: 30px auto;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 23px;
+
+    line-height: 1.55;
+
+    color: #684352;
+}
+
+.final-heart {
+    margin-top: 25px;
+
+    font-size: 42px;
+
+    color: #d76f92;
+
+    animation: beat 1.5s infinite;
+}
+
+@keyframes beat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.13);
+    }
+}
+
+/* =========================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================= */
+
+@media (max-width: 650px) {
+
+    .page {
+        padding: 18px 13px 45px;
+    }
+
+    .intro-card {
+        padding: 42px 18px;
+
+        border-radius: 30px;
+    }
+
+    .intro-card h1 {
+        font-size: 62px;
+    }
+
+    .intro-text {
+        font-size: 21px;
+    }
+
+    .quote {
+        font-size: 23px;
+    }
+
+    .love-line {
+        font-size: 27px;
+    }
+
+    .invite-title {
+        font-size: 34px;
+    }
+
+    .options {
+        grid-template-columns: 1fr;
+    }
+
+    .date-time-box {
+        grid-template-columns: 1fr;
+    }
+
+    .letter {
+        padding: 45px 19px;
+
+        border-radius: 30px;
+    }
+
+    .letter-intro,
+    .final-message {
+        font-size: 21px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="floating-heart" style="left:7%;animation-duration:13s;">♡</div>
+<div class="floating-heart" style="left:25%;animation-duration:17s;animation-delay:2s;">♡</div>
+<div class="floating-heart" style="left:48%;animation-duration:14s;animation-delay:5s;">♡</div>
+<div class="floating-heart" style="left:72%;animation-duration:18s;animation-delay:1s;">♡</div>
+<div class="floating-heart" style="left:90%;animation-duration:15s;animation-delay:7s;">♡</div>
+
+
+<!-- =========================
+     СТРАНИЦА 1
+========================= -->
+
+<section id="page1" class="page">
+
+<div class="container">
+
+<div class="intro-card">
+
+    <div class="small-heart">
+        ♡
+    </div>
+
+    <div class="eyebrow">
+        кое-что очень важное
+    </div>
+
+    <h1>
+        Ань,<br>
+        давай <span>сначала?</span>
+    </h1>
+
+    <div class="intro-text">
+
+        Я долго думал, как сказать всё это правильно.
+
+        <div class="quote">
+
+            Я никогда не захочу найти никого лучше.
+            <br>
+            Я просто хочу, чтобы <b>мы стали лучше.</b>
+
+        </div>
+
+        Лучше миллион раз буду спасать наши отношения
+        и бороться, учиться на наших ошибках,
+        меняться вместе, чем просто бросить всё.
+
+        <br><br>
+
+        Я не хочу обещать тебе идеальность.
+        Я хочу учиться, меняться и доказывать
+        всё своими поступками.
+
+        <br><br>
+
+        Мне хочется, чтобы мы не возвращались
+        в прошлое, а попробовали создать
+        что-то новое.
+
+        <br><br>
+
+        Более взрослое.
+        Более бережное.
+        И настоящее.
+
+    </div>
+
+    <div class="love-line">
+
+        Прости меня, пожалуйста.<br>
+        Люблю тебя 100 тысяч раз. ❤️
+
+    </div>
+
+    <div class="invite-title">
+        Поэтому я хочу предложить тебе кое-что...
+    </div>
+
+    <button
+        class="main-button"
+        onclick="goToDate()"
+    >
+        Приглашаю тебя на свидание 🌷
+    </button>
+
+    <div class="choice-area">
+
+        <button
+            id="noButton"
+            class="no-button"
+            onmouseenter="escapeNo()"
+            onmouseover="escapeNo()"
+            ontouchstart="escapeNo(event)"
+            onclick="escapeNo(event)"
+        >
+            Нет
+        </button>
+
+        <div
+            id="hint"
+            class="hint"
+        ></div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     СТРАНИЦА 2
+========================= -->
+
+<section id="page2" class="page hidden">
+
+<div class="container">
+
+<div class="page-heading">
+
+    <div class="eyebrow">
+        теперь выбираешь ты
+    </div>
+
+    <h2>
+        Каким будет<br>
+        наше свидание? 🌸
+    </h2>
+
+    <p>
+        Можно выбрать несколько вариантов.
+        Выбирай всё, чего хочется 💗
+    </p>
+
+</div>
+
+
+<!-- ЗАНЯТИЯ -->
+
+<div class="selection-section">
+
+    <div class="selection-title">
+        🌹 Чем займёмся?
+    </div>
+
+    <div class="options" id="activityOptions">
+
+        <button class="option" data-value="Вечерняя прогулка">
+            <span class="emoji">🌆</span>
+            Вечерняя прогулка
+        </button>
+
+        <button class="option" data-value="Встретить закат">
+            <span class="emoji">🌅</span>
+            Встретить закат
+        </button>
+
+        <button class="option" data-value="Кино + прогулка">
+            <span class="emoji">🎬</span>
+            Кино + прогулка
+        </button>
+
+        <button class="option" data-value="Кафе с десертами">
+            <span class="emoji">🍰</span>
+            Кафе с десертами
+        </button>
+
+        <button class="option" data-value="Творческий мастер-класс">
+            <span class="emoji">🎨</span>
+            Творческий мастер-класс
+        </button>
+
+        <button class="option" data-value="Фотопрогулка">
+            <span class="emoji">📸</span>
+            Фотопрогулка
+        </button>
+
+        <button class="option" data-value="Прогулка по центру">
+            <span class="emoji">🏙️</span>
+            Прогулка по центру
+        </button>
+
+        <button class="option" data-value="Вечерняя поездка с музыкой">
+            <span class="emoji">🌌</span>
+            Поездка с музыкой
+        </button>
+
+        <button class="option" data-value="Небольшой пикник">
+            <span class="emoji">🧺</span>
+            Небольшой пикник
+        </button>
+
+        <button class="option" data-value="Боулинг">
+            <span class="emoji">🎳</span>
+            Боулинг
+        </button>
+
+        <button class="option" data-value="Парк + кофе">
+            <span class="emoji">🌿</span>
+            Парк + кофе
+        </button>
+
+        <button class="option" data-value="Уютный вечер вдвоём">
+            <span class="emoji">🕯️</span>
+            Уютный вечер вдвоём
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ЕДА -->
+
+<div class="selection-section">
+
+    <div class="selection-title">
+        🍽️ Что будем кушать?
+    </div>
+
+    <div class="options" id="foodOptions">
+
+        <button class="option" data-value="Пицца">
+            <span class="emoji">🍕</span>
+            Пицца
+        </button>
+
+        <button class="option" data-value="Суши / роллы">
+            <span class="emoji">🍣</span>
+            Суши / роллы
+        </button>
+
+        <button class="option" data-value="Бургеры">
+            <span class="emoji">🍔</span>
+            Бургеры
+        </button>
+
+        <button class="option" data-value="Азиатская кухня">
+            <span class="emoji">🍜</span>
+            Азиатская кухня
+        </button>
+
+        <button class="option" data-value="Паста">
+            <span class="emoji">🍝</span>
+            Паста
+        </button>
+
+        <button class="option" data-value="Что-нибудь мясное">
+            <span class="emoji">🥩</span>
+            Что-нибудь мясное
+        </button>
+
+        <button class="option" data-value="Только десерты">
+            <span class="emoji">🍰</span>
+            Только десерты
+        </button>
+
+        <button class="option" data-value="Выбирай сам">
+            <span class="emoji">🤍</span>
+            Выбирай сам
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- НАПИТКИ -->
+
+<div class="selection-section">
+
+    <div class="selection-title">
+        🥂 Что будем пить?
+    </div>
+
+    <div class="options" id="drinkOptions">
+
+        <button class="option" data-value="Виски + кола">
+            <span class="emoji">🥃</span>
+            Виски + кола
+        </button>
+
+        <button class="option" data-value="Кофе">
+            <span class="emoji">☕</span>
+            Кофе
+        </button>
+
+        <button class="option" data-value="Бабл-ти">
+            <span class="emoji">🧋</span>
+            Бабл-ти
+        </button>
+
+        <button class="option" data-value="Кола">
+            <span class="emoji">🥤</span>
+            Кола
+        </button>
+
+        <button class="option" data-value="Чай">
+            <span class="emoji">🍵</span>
+            Чай
+        </button>
+
+        <button class="option" data-value="Что-нибудь ягодное">
+            <span class="emoji">🍓</span>
+            Что-нибудь ягодное
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- НАСТРОЕНИЕ -->
+
+<div class="selection-section">
+
+    <div class="selection-title">
+        💗 Какое настроение?
+    </div>
+
+    <div class="options" id="moodOptions">
+
+        <button class="option" data-value="Нежное и спокойное">
+            <span class="emoji">🌸</span>
+            Нежное и спокойное
+        </button>
+
+        <button class="option" data-value="Смеёмся весь вечер">
+            <span class="emoji">😂</span>
+            Смеёмся весь вечер
+        </button>
+
+        <button class="option" data-value="Красиво нарядиться">
+            <span class="emoji">✨</span>
+            Красиво нарядиться
+        </button>
+
+        <button class="option" data-value="Уехать куда-нибудь вдвоём">
+            <span class="emoji">🌃</span>
+            Уехать куда-нибудь вдвоём
+        </button>
+
+        <button class="option" data-value="Просто быть рядом">
+            <span class="emoji">🫶</span>
+            Просто быть рядом
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ДАТА + ВРЕМЯ -->
+
+<div class="selection-section">
+
+    <div class="selection-title">
+        📅 Когда?
+    </div>
+
+    <div class="date-time-box">
+
+        <div>
+
+            <label for="date">
+                Дата
+            </label>
+
+            <input
+                type="date"
+                id="date"
+            >
+
+        </div>
+
+        <div>
+
+            <label for="time">
+                Время
+            </label>
+
+            <input
+                type="time"
+                id="time"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="confirm-area">
+
+    <button
+        class="main-button"
+        onclick="createInvitation()"
+    >
+        Посмотреть наше свидание 💌
+    </button>
+
+    <div class="required-note">
+        Выбери хотя бы один вариант в каждом разделе
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     СТРАНИЦА 3
+========================= -->
+
+<section id="page3" class="page hidden">
+
+<div class="container">
+
+<div class="letter">
+
+    <div class="letter-top">
+        ♡
+    </div>
+
+    <div class="eyebrow">
+        наше маленькое приглашение
+    </div>
+
+    <h2>
+        Аня,<br>
+        у нас свидание.
+    </h2>
+
+    <div class="letter-intro">
+
+        Ты сама выбрала, каким оно будет.
+        Осталось только воплотить это в жизнь. ❤️
+
+    </div>
+
+
+    <div class="summary">
+
+        <div class="summary-row">
+            🌹 <strong>Чем займёмся:</strong>
+            <span id="resultActivity"></span>
+        </div>
+
+        <div class="summary-row">
+            🍽️ <strong>Покушаем:</strong>
+            <span id="resultFood"></span>
+        </div>
+
+        <div class="summary-row">
+            🥂 <strong>Будем пить:</strong>
+            <span id="resultDrink"></span>
+        </div>
+
+        <div class="summary-row">
+            💗 <strong>Настроение:</strong>
+            <span id="resultMood"></span>
+        </div>
+
+        <div class="summary-row">
+            📅 <strong>Дата:</strong>
+            <span id="resultDate"></span>
+        </div>
+
+        <div class="summary-row">
+            🕐 <strong>Время:</strong>
+            <span id="resultTime"></span>
+        </div>
+
+    </div>
+
+
+    <div class="final-message">
+
+        Я не хочу возвращаться в прошлое.
+
+        <br><br>
+
+        Я хочу попробовать создать что-то новое.
+
+        <br><br>
+
+        Без обещаний, что всё сразу станет идеально.
+        Просто с желанием становиться лучше,
+        слышать друг друга, учиться на своих ошибках
+        и снова находить друг друга.
+
+        <br><br>
+
+        Поэтому пусть это будет всего лишь одно свидание.
+
+        <br><br>
+
+        А дальше...
+        <b>посмотрим, куда оно нас приведёт.</b> ❤️
+
+    </div>
+
+
+    <button
+        class="main-button"
+        onclick="confirmDate()"
+    >
+        Подтвердить свидание ❤️
+    </button>
+
+    <div class="final-heart">
+        ♡
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   ПЕРЕХОД
+========================= */
+
+function goToDate() {
+
+    document.getElementById('page1')
+        .classList.add('hidden');
+
+    document.getElementById('page2')
+        .classList.remove('hidden');
+
+    window.scrollTo(0, 0);
+}
+
+
+/* =========================
+   УБЕГАЮЩАЯ КНОПКА
+========================= */
+
+let noAttempts = 0;
+
+const noPhrases = [
+    "Не-не 🥺",
+    "Не получится 😌",
+    "Попробуй поймать меня 😏",
+    "Почти! 😂",
+    "Я убежала ❤️",
+    "Эта кнопка сегодня не работает 🥹",
+    "Только «Согласна» 🌷"
+];
+
+function escapeNo(event) {
+
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
+    const button =
+        document.getElementById('noButton');
+
+    const hint =
+        document.getElementById('hint');
+
+    noAttempts++;
+
+    const padding = 15;
+
+    const width =
+        button.offsetWidth || 70;
+
+    const height =
+        button.offsetHeight || 35;
+
+    const maxX =
+        Math.max(
+            padding,
+            window.innerWidth - width - padding
+        );
+
+    const maxY =
+        Math.max(
+            padding,
+            window.innerHeight - height - padding
+        );
+
+    const x =
+        padding +
+        Math.random() *
+        Math.max(1, maxX - padding);
+
+    const y =
+        padding +
+        Math.random() *
+        Math.max(1, maxY - padding);
+
+    button.style.left = x + 'px';
+    button.style.top = y + 'px';
+
+    hint.textContent =
+        noPhrases[
+            (noAttempts - 1) %
+            noPhrases.length
+        ];
+}
+
+
+/*
+   Кнопка постоянно меняет положение.
+   Поэтому даже если она попробует
+   поймать её пальцем, кнопка убежит.
+*/
+
+setInterval(() => {
+
+    const button =
+        document.getElementById('noButton');
+
+    if (
+        !document
+            .getElementById('page1')
+            .classList
+            .contains('hidden')
+    ) {
+
+        escapeNo();
+
+    }
+
+}, 900);
+
+
+/* =========================
+   МНОЖЕСТВЕННЫЙ ВЫБОР
+========================= */
+
+document
+.querySelectorAll('.option')
+.forEach(button => {
+
+    button.addEventListener(
+        'click',
+        function() {
+
+            this.classList.toggle('selected');
+
+        }
+    );
+
+});
+
+
+/* =========================
+   ПОЛУЧИТЬ ВЫБОР
+========================= */
+
+function getSelected(groupId) {
+
+    return Array
+        .from(
+            document.querySelectorAll(
+                '#' + groupId + ' .selected'
+            )
+        )
+        .map(
+            button =>
+                button.dataset.value
+        );
+}
+
+
+/* =========================
+   СОЗДАНИЕ ПРИГЛАШЕНИЯ
+========================= */
+
+function createInvitation() {
+
+    const activity =
+        getSelected('activityOptions');
+
+    const food =
+        getSelected('foodOptions');
+
+    const drink =
+        getSelected('drinkOptions');
+
+    const mood =
+        getSelected('moodOptions');
+
+    const date =
+        document.getElementById('date').value;
+
+    const time =
+        document.getElementById('time').value;
+
+
+    if (
+        activity.length === 0 ||
+        food.length === 0 ||
+        drink.length === 0 ||
+        mood.length === 0 ||
+        !date ||
+        !time
+    ) {
+
+        alert(
+            "Давай сначала выберем всё для нашего свидания ❤️"
+        );
+
+        return;
+    }
+
+
+    document.getElementById(
+        'resultActivity'
+    ).textContent =
+        activity.join(', ');
+
+
+    document.getElementById(
+        'resultFood'
+    ).textContent =
+        food.join(', ');
+
+
+    document.getElementById(
+        'resultDrink'
+    ).textContent =
+        drink.join(', ');
+
+
+    document.getElementById(
+        'resultMood'
+    ).textContent =
+        mood.join(', ');
+
+
+    document.getElementById(
+        'resultDate'
+    ).textContent =
+        formatDate(date);
+
+
+    document.getElementById(
+        'resultTime'
+    ).textContent =
+        time;
+
+
+    document.getElementById('page2')
+        .classList.add('hidden');
+
+    document.getElementById('page3')
+        .classList.remove('hidden');
+
+    window.scrollTo(0, 0);
+}
+
+
+/* =========================
+   ФОРМАТ ДАТЫ
+========================= */
+
+function formatDate(value) {
+
+    const date =
+        new Date(
+            value + 'T00:00:00'
+        );
+
+    return date.toLocaleDateString(
+        'ru-RU',
+        {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        }
+    );
+}
+
+
+/* =========================
+   ФИНАЛ
+========================= */
+
+function confirmDate() {
+
+    alert(
+        "Свидание подтверждено ❤️\n\n" +
+        "Теперь осталось только встретиться."
+    );
+
+}
+
+</script>
+
+</body>
+</html>
