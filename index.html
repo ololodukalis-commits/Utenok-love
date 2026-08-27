@@ -1,0 +1,2821 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Для тебя ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap"
+    rel="stylesheet"
+>
+
+
+<style>
+
+/* =========================================
+   ОСНОВА
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(245, 190, 211, .45),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(238, 204, 218, .5),
+            transparent 30%
+        ),
+
+        #fff9fb;
+
+    color: #38272e;
+
+    font-family:
+        'Montserrat',
+        Arial,
+        sans-serif;
+}
+
+
+/* =========================================
+   ЭКРАНЫ
+========================================= */
+
+.screen {
+
+    min-height: 100vh;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 35px 18px;
+}
+
+.screen.active {
+
+    display: flex;
+}
+
+.container {
+
+    width: 100%;
+
+    max-width: 820px;
+
+    margin: auto;
+}
+
+.fade {
+
+    animation:
+        fadeIn .8s ease;
+}
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   МАЛЕНЬКАЯ НАДПИСЬ
+========================================= */
+
+.eyebrow {
+
+    margin-bottom: 28px;
+
+    color: #987581;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   ПЕРВАЯ СТРАНИЦА
+========================================= */
+
+.intro {
+
+    text-align: center;
+}
+
+.intro h1 {
+
+    margin: 0;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(82px, 17vw, 150px);
+
+    line-height: .72;
+
+    font-weight: 500;
+
+    letter-spacing: -5px;
+}
+
+.intro h1 span {
+
+    color: #c97091;
+}
+
+.line {
+
+    width: 65px;
+
+    height: 1px;
+
+    margin: 42px auto;
+
+    background: #c97091;
+}
+
+.intro-text {
+
+    max-width: 580px;
+
+    margin: auto;
+
+    color: #634b54;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(25px, 4vw, 32px);
+
+    line-height: 1.35;
+}
+
+.primary-button {
+
+    margin-top: 45px;
+
+    padding: 17px 35px;
+
+    border: none;
+
+    border-radius: 100px;
+
+    background: #38272e;
+
+    color: white;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.primary-button:hover {
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================
+   ПИСЬМО
+========================================= */
+
+.letter {
+
+    max-width: 730px;
+
+    margin: auto;
+}
+
+.letter h2 {
+
+    margin: 0 0 48px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(65px, 11vw, 100px);
+
+    line-height: .76;
+
+    font-weight: 500;
+
+    text-align: center;
+
+    letter-spacing: -2px;
+}
+
+.letter-text {
+
+    color: #594149;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(23px, 3vw, 28px);
+
+    line-height: 1.45;
+}
+
+.letter-text p {
+
+    margin: 0 0 27px;
+}
+
+.letter-text .pink {
+
+    color: #c97091;
+
+    font-size:
+        clamp(28px, 4vw, 35px);
+
+    line-height: 1.25;
+
+    text-align: center;
+
+    margin:
+        45px 0;
+}
+
+.question {
+
+    margin-top: 48px;
+
+    color: #38272e;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(38px, 7vw, 55px);
+
+    line-height: 1;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   КНОПКИ
+========================================= */
+
+.buttons-area {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 270px;
+
+    margin-top: 10px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   СОГЛАСНА
+========================================= */
+
+.yes-button {
+
+    position: absolute;
+
+    left: 26%;
+
+    top: 50%;
+
+    width: 160px;
+
+    height: 58px;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 20;
+
+    border: none;
+
+    border-radius: 100px;
+
+    background: #c97091;
+
+    color: white;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 12px 35px
+        rgba(201,112,145,.25);
+
+    transition:
+        left .6s
+        cubic-bezier(.22,1,.36,1);
+}
+
+.yes-button.center {
+
+    left: 50%;
+}
+
+
+/* =========================================
+   НЕТ
+========================================= */
+
+.no-button {
+
+    position: absolute;
+
+    left: 74%;
+
+    top: 50%;
+
+    z-index: 10;
+
+    transform:
+        translate(-50%, -50%);
+
+    min-width: 62px;
+
+    max-width: 105px;
+
+    min-height: 36px;
+
+    padding: 8px 12px;
+
+    border:
+        1px solid #dfc4ce;
+
+    border-radius: 100px;
+
+    background:
+        rgba(255,255,255,.98);
+
+    color: #765d66;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 10px;
+
+    line-height: 1.2;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    overflow-wrap: break-word;
+
+    transition:
+        left .35s ease,
+        top .35s ease;
+}
+
+
+/* =========================================
+   СТРАНИЦА ВЫБОРА
+========================================= */
+
+.choice-screen {
+
+    align-items: flex-start;
+
+    padding-top: 60px;
+}
+
+.choice-title {
+
+    margin-bottom: 55px;
+
+    text-align: center;
+}
+
+.choice-title h2 {
+
+    margin: 0;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(68px, 11vw, 105px);
+
+    line-height: .75;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+}
+
+.choice-title p {
+
+    margin-top: 25px;
+
+    color: #80636d;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   РАЗДЕЛ
+========================================= */
+
+.section {
+
+    margin-bottom: 48px;
+}
+
+.section h3 {
+
+    margin: 0 0 20px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(38px, 6vw, 50px);
+
+    line-height: 1;
+
+    font-weight: 500;
+}
+
+
+/* =========================================
+   ВАРИАНТЫ
+========================================= */
+
+.options {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 13px;
+}
+
+.option {
+
+    position: relative;
+
+    min-height: 94px;
+
+    padding: 21px;
+
+    border:
+        1px solid #e3c6d1;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.94);
+
+    color: #4f3841;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 15px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s,
+        background .2s,
+        border .2s,
+        box-shadow .2s;
+}
+
+.option:hover {
+
+    transform:
+        translateY(-2px);
+}
+
+.option strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+.option small {
+
+    color: #80636d;
+
+    font-size: 13px;
+
+    line-height: 1.45;
+}
+
+
+/* =========================================
+   ВЫБРАННЫЙ
+========================================= */
+
+.option.selected {
+
+    border:
+        2px solid #c97091;
+
+    background:
+        #ffe0eb;
+
+    box-shadow:
+        0 12px 30px
+        rgba(201,112,145,.20);
+
+    transform:
+        translateY(-2px);
+}
+
+.option.selected strong {
+
+    color: #a84d70;
+}
+
+.option.selected::after {
+
+    content: "✓";
+
+    position: absolute;
+
+    top: 13px;
+
+    right: 17px;
+
+    color: #c45d83;
+
+    font-size: 23px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   ДАТА
+========================================= */
+
+.date-box {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+
+    padding: 22px;
+
+    border:
+        1px solid #e3c6d1;
+
+    border-radius: 21px;
+
+    background: white;
+}
+
+.date-box label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #80636d;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.date-box input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border:
+        1px solid #e2cbd3;
+
+    border-radius: 12px;
+
+    background: #fffafb;
+
+    color: #38272e;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+
+/* =========================================
+   СЮРПРИЗ
+========================================= */
+
+.surprise {
+
+    padding: 22px;
+
+    border:
+        1px dashed #d79aad;
+
+    border-radius: 20px;
+
+    background: #fff5f8;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.surprise strong {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 17px;
+}
+
+.surprise small {
+
+    color: #80636d;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+.surprise.active {
+
+    border:
+        2px solid #c97091;
+
+    background:
+        #ffe0eb;
+}
+
+
+/* =========================================
+   ФИНАЛЬНАЯ КНОПКА
+========================================= */
+
+.submit {
+
+    width: 100%;
+
+    padding: 21px;
+
+    border: none;
+
+    border-radius: 100px;
+
+    background: #38272e;
+
+    color: white;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.submit:hover {
+
+    transform:
+        translateY(-2px);
+}
+
+.error {
+
+    min-height: 20px;
+
+    margin-top: 15px;
+
+    color: #b55e7c;
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   ФИНАЛЬНАЯ СТРАНИЦА
+========================================= */
+
+.final-screen {
+
+    align-items: flex-start;
+
+    padding-top: 50px;
+}
+
+.final-card {
+
+    max-width: 730px;
+
+    margin: auto;
+
+    padding:
+        50px 27px;
+
+    border-radius: 32px;
+
+    background:
+        rgba(255,255,255,.9);
+
+    box-shadow:
+        0 30px 90px
+        rgba(80,35,50,.10);
+
+    text-align: center;
+}
+
+.final-card h2 {
+
+    margin: 0 0 35px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(70px, 11vw, 105px);
+
+    line-height: .75;
+
+    font-weight: 500;
+}
+
+.final-intro {
+
+    color: #604650;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(24px, 4vw, 30px);
+
+    line-height: 1.35;
+}
+
+
+/* =========================================
+   РЕЗУЛЬТАТ
+========================================= */
+
+.summary {
+
+    max-width: 590px;
+
+    margin: 40px auto;
+
+    padding:
+        20px 23px;
+
+    border-radius: 23px;
+
+    background: #fff1f6;
+
+    text-align: left;
+}
+
+.summary-row {
+
+    padding: 14px 0;
+
+    border-bottom:
+        1px solid #efd8e1;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.summary-row:last-child {
+
+    border-bottom: none;
+}
+
+.summary-row strong {
+
+    color: #c97091;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   ФИНАЛЬНЫЙ ТЕКСТ
+========================================= */
+
+.final-message {
+
+    max-width: 590px;
+
+    margin: 35px auto;
+
+    color: #5b4149;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(23px, 4vw, 29px);
+
+    line-height: 1.45;
+}
+
+
+/* =========================================
+   СКРИНШОТ
+========================================= */
+
+.screenshot-box {
+
+    padding: 22px;
+
+    border:
+        1px dashed #d894ab;
+
+    border-radius: 20px;
+
+    background: #fff6f9;
+
+    color: #62434e;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.screenshot-box strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #c97091;
+
+    font-size: 17px;
+}
+
+.heart {
+
+    margin-top: 28px;
+
+    color: #c97091;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 55px;
+}
+
+
+/* =========================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================================= */
+
+@media (max-width: 600px) {
+
+    .screen {
+
+        padding:
+            30px 16px;
+    }
+
+    .intro h1 {
+
+        letter-spacing: -3px;
+    }
+
+    .letter-text {
+
+        font-size: 23px;
+    }
+
+    .options {
+
+        grid-template-columns: 1fr;
+    }
+
+    .date-box {
+
+        grid-template-columns: 1fr;
+    }
+
+    .buttons-area {
+
+        height: 270px;
+    }
+
+    .yes-button {
+
+        left: 24%;
+
+        width: 155px;
+
+        height: 57px;
+
+        font-size: 15px;
+    }
+
+    .yes-button.center {
+
+        left: 50%;
+    }
+
+    .no-button {
+
+        max-width: 95px;
+
+        min-width: 58px;
+
+        padding: 8px 10px;
+
+        font-size: 9px;
+    }
+
+    .final-card {
+
+        padding:
+            45px 20px;
+    }
+
+}
+
+
+/* =========================================
+   СОВСЕМ МАЛЕНЬКИЙ ЭКРАН
+========================================= */
+
+@media (max-width: 380px) {
+
+    .yes-button {
+
+        width: 145px;
+
+        font-size: 14px;
+    }
+
+    .no-button {
+
+        max-width: 88px;
+
+        font-size: 8px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     ЭКРАН 1
+================================================== -->
+
+<section
+    id="screen1"
+    class="screen active"
+>
+
+<div class="container fade">
+
+<div class="intro">
+
+
+<div class="eyebrow">
+
+    я долго думал, как это сказать
+
+</div>
+
+
+<h1>
+
+    Давай<br>
+
+    <span>
+
+        сначала.
+
+    </span>
+
+</h1>
+
+
+<div class="line"></div>
+
+
+<div class="intro-text">
+
+    Иногда не нужно искать кого-то лучше.
+    Иногда нужно научиться быть лучше
+    друг для друга.
+
+</div>
+
+
+<button
+    class="primary-button"
+    onclick="showScreen(2)"
+>
+
+    Открыть письмо
+
+</button>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     ЭКРАН 2
+================================================== -->
+
+<section
+    id="screen2"
+    class="screen"
+>
+
+<div class="container fade">
+
+<div class="letter">
+
+
+<div class="eyebrow">
+
+    несколько вещей, которые я хочу сказать
+
+</div>
+
+
+<h2>
+
+    Без обещаний.<br>
+    Просто честно.
+
+</h2>
+
+
+<div class="letter-text">
+
+
+<p>
+
+    Я никогда не захочу найти никого лучше.
+    Я просто хочу, чтобы
+    <b>мы стали лучше.</b>
+
+</p>
+
+
+<p>
+
+    Лучше миллион раз спасать наши отношения
+    и бороться, учиться на наших ошибках,
+    меняться вместе — чем просто бросить всё.
+
+</p>
+
+
+<p>
+
+    Я знаю, что мы ошибались.
+    Знаю, что иногда мы не слышали друг друга,
+    говорили не то и делали больно.
+
+</p>
+
+
+<p>
+
+    Но я не хочу делать вид,
+    будто всего этого не было.
+
+</p>
+
+
+<p>
+
+    Я хочу вынести из этого всё,
+    чему мы могли научиться.
+
+</p>
+
+
+<p class="pink">
+
+    Прости меня, пожалуйста.<br>
+
+    Люблю тебя 100 тысяч раз. ❤️
+
+</p>
+
+
+<p>
+
+    Я не хочу вернуть прошлое.
+
+</p>
+
+
+<p>
+
+    Я хочу попробовать создать что-то новое.
+    Более бережное.
+    Более взрослое.
+    Более настоящее.
+
+</p>
+
+
+</div>
+
+
+<div class="question">
+
+    Я просто приглашаю тебя<br>
+
+    на свидание.
+
+</div>
+
+
+<div
+    class="buttons-area"
+    id="buttonsArea"
+>
+
+
+<button
+    id="yesButton"
+    class="yes-button"
+    onclick="showScreen(3)"
+>
+
+    Согласна ❤️
+
+</button>
+
+
+<button
+    id="noButton"
+    class="no-button"
+>
+
+    Нет
+
+</button>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     ЭКРАН 3 — ВЫБОР
+================================================== -->
+
+<section
+    id="screen3"
+    class="screen choice-screen"
+>
+
+<div class="container fade">
+
+
+<div class="choice-title">
+
+<div class="eyebrow">
+
+    теперь выбираешь ты
+
+</div>
+
+
+<h2>
+
+    Каким будет<br>
+
+    наш вечер?
+
+</h2>
+
+
+<p>
+
+    Можно выбрать несколько вариантов.
+
+</p>
+
+</div>
+
+
+
+<!-- АКТИВНОСТИ -->
+
+<div class="section">
+
+<h3>
+
+    🌹 Что хочется делать?
+
+</h3>
+
+
+<div
+    class="options"
+    id="activities"
+>
+
+
+<button class="option">
+
+<strong>
+
+    🌆 Вечерняя прогулка
+
+</strong>
+
+<small>
+
+    Гулять и разговаривать обо всём.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🌅 Встретить закат
+
+</strong>
+
+<small>
+
+    Красивое место и немного тишины.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🎬 Кино + прогулка
+
+</strong>
+
+<small>
+
+    Фильм, а потом долго не расходиться.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    📸 Фотопрогулка
+
+</strong>
+
+<small>
+
+    Оставить несколько красивых воспоминаний.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🌿 Красивое место
+
+</strong>
+
+<small>
+
+    Просто куда-нибудь, где хорошо.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🎨 Творческий мастер-класс
+
+</strong>
+
+<small>
+
+    Сделать что-нибудь вместе.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🧺 Небольшой пикник
+
+</strong>
+
+<small>
+
+    Плед, еда и вечерний воздух.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🌌 Вечерняя поездка
+
+</strong>
+
+<small>
+
+    Музыка, город и никаких планов.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    ☕ Парк + кофе
+
+</strong>
+
+<small>
+
+    Спокойно и без спешки.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🎳 Боулинг
+
+</strong>
+
+<small>
+
+    Немного соревнования и много смеха.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🕯️ Уютный вечер вдвоём
+
+</strong>
+
+<small>
+
+    Когда больше ничего и не нужно.
+
+</small>
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- ЕДА -->
+
+<div class="section">
+
+<h3>
+
+    🍽️ Что будем есть?
+
+</h3>
+
+
+<div
+    class="options"
+    id="food"
+>
+
+
+<button class="option">
+
+<strong>
+
+    🍕 Пицца
+
+</strong>
+
+<small>
+
+    Классика, которая никогда не подводит.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🍣 Суши / роллы
+
+</strong>
+
+<small>
+
+    Можно взять несколько разных.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🍔 Бургеры
+
+</strong>
+
+<small>
+
+    Сегодня можно не считать калории.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🍜 Азиатская кухня
+
+</strong>
+
+<small>
+
+    Что-нибудь необычное и вкусное.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🍝 Паста
+
+</strong>
+
+<small>
+
+    Уютный вариант для спокойного вечера.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🥩 Что-нибудь мясное
+
+</strong>
+
+<small>
+
+    Если хочется чего-нибудь посерьёзнее.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🍰 Десерты
+
+</strong>
+
+<small>
+
+    Потому что сладкое отдельно тоже считается.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🤍 Выбирай сам
+
+</strong>
+
+<small>
+
+    Сегодня доверяю твоему вкусу.
+
+</small>
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- НАПИТКИ -->
+
+<div class="section">
+
+<h3>
+
+    🥂 Что будем пить?
+
+</h3>
+
+
+<div
+    class="options"
+    id="drinks"
+>
+
+
+<button class="option">
+
+<strong>
+
+    🥃 Виски + кола
+
+</strong>
+
+<small>
+
+    Ну тут всё понятно.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    ☕ Кофе
+
+</strong>
+
+<small>
+
+    Можно долго разговаривать.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🥤 Кола
+
+</strong>
+
+<small>
+
+    Просто и вкусно.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🧋 Бабл-ти
+
+</strong>
+
+<small>
+
+    Немного сладкого настроения.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🍵 Чай
+
+</strong>
+
+<small>
+
+    Для самого спокойного вечера.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🍓 Что-нибудь ягодное
+
+</strong>
+
+<small>
+
+    Красиво и вкусно.
+
+</small>
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- НАСТРОЕНИЕ -->
+
+<div class="section">
+
+<h3>
+
+    💗 Каким должен быть вечер?
+
+</h3>
+
+
+<div
+    class="options"
+    id="mood"
+>
+
+
+<button class="option">
+
+<strong>
+
+    🌸 Нежным и спокойным
+
+</strong>
+
+<small>
+
+    Без спешки.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    😂 Смеёмся весь вечер
+
+</strong>
+
+<small>
+
+    Чтобы болели щёки.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    ✨ Красиво нарядиться
+
+</strong>
+
+<small>
+
+    Пусть будет повод.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🫶 Просто быть рядом
+
+</strong>
+
+<small>
+
+    Без лишних планов.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🌹 Романтичным
+
+</strong>
+
+<small>
+
+    Так, чтобы запомнилось.
+
+</small>
+
+</button>
+
+
+<button class="option">
+
+<strong>
+
+    🌌 Спонтанным
+
+</strong>
+
+<small>
+
+    Разберёмся по дороге.
+
+</small>
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- СЮРПРИЗ -->
+
+<div class="section">
+
+<h3>
+
+    🎁 И последнее
+
+</h3>
+
+
+<div
+    id="surprise"
+    class="surprise"
+    onclick="toggleSurprise()"
+>
+
+
+<strong>
+
+    Оставить один пункт мне
+
+</strong>
+
+
+<small>
+
+    Ты выбираешь почти всё сама,
+    а одну маленькую вещь я придумаю для тебя.
+
+</small>
+
+
+</div>
+
+</div>
+
+
+
+<!-- ДАТА -->
+
+<div class="section">
+
+<h3>
+
+    📅 Когда ты можешь?
+
+</h3>
+
+
+<div class="date-box">
+
+
+<div>
+
+<label>
+
+    Дата
+
+</label>
+
+
+<input
+    type="date"
+    id="date"
+>
+
+</div>
+
+
+<div>
+
+<label>
+
+    Время
+
+</label>
+
+
+<input
+    type="time"
+    id="time"
+>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<button
+    class="submit"
+    onclick="showFinal()"
+>
+
+    Посмотреть наше приглашение ❤️
+
+</button>
+
+
+<div
+    id="error"
+    class="error"
+></div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     ФИНАЛ
+================================================== -->
+
+<section
+    id="screen4"
+    class="screen final-screen"
+>
+
+<div class="container fade">
+
+<div class="final-card">
+
+
+<div class="eyebrow">
+
+    приглашение принято
+
+</div>
+
+
+<h2>
+
+    Тогда<br>
+
+    договорились. ❤️
+
+</h2>
+
+
+<div class="final-intro">
+
+    Ты сама выбрала,
+    каким будет этот вечер.
+
+    <br><br>
+
+    Теперь осталось только
+    встретиться и прожить его
+    вместе.
+
+</div>
+
+
+
+<div class="summary">
+
+
+<div class="summary-row">
+
+<strong>
+
+    🌹 Чем займёмся
+
+</strong>
+
+<br>
+
+<span id="resultActivities"></span>
+
+</div>
+
+
+<div class="summary-row">
+
+<strong>
+
+    🍽️ Что будем есть
+
+</strong>
+
+<br>
+
+<span id="resultFood"></span>
+
+</div>
+
+
+<div class="summary-row">
+
+<strong>
+
+    🥂 Что будем пить
+
+</strong>
+
+<br>
+
+<span id="resultDrinks"></span>
+
+</div>
+
+
+<div class="summary-row">
+
+<strong>
+
+    💗 Настроение
+
+</strong>
+
+<br>
+
+<span id="resultMood"></span>
+
+</div>
+
+
+<div class="summary-row">
+
+<strong>
+
+    📅 Дата
+
+</strong>
+
+<br>
+
+<span id="resultDate"></span>
+
+</div>
+
+
+<div class="summary-row">
+
+<strong>
+
+    🕐 Время
+
+</strong>
+
+<br>
+
+<span id="resultTime"></span>
+
+</div>
+
+
+<div
+    class="summary-row"
+    id="resultSurprise"
+>
+
+<strong>
+
+    🎁 Сюрприз
+
+</strong>
+
+<br>
+
+Оставлено мне.
+
+</div>
+
+
+</div>
+
+
+
+<div class="final-message">
+
+    Я не хочу, чтобы это было
+    возвращением в прошлое.
+
+    <br><br>
+
+    Пусть это будет просто
+    один хороший вечер.
+
+    <br><br>
+
+    А потом посмотрим,
+    сколько ещё таких вечеров
+    мы сможем придумать.
+
+    <br><br>
+
+    Главное — сегодня
+    мы снова выбрали друг друга. ❤️
+
+</div>
+
+
+
+<div class="screenshot-box">
+
+<strong>
+
+    📸 И теперь одна маленькая просьба
+
+</strong>
+
+    Сделай скриншот этой страницы
+    и отправь мне.
+
+    <br><br>
+
+    Хочу сохранить момент,
+    когда ты выбрала этот вечер
+    со мной. ❤️
+
+</div>
+
+
+<div class="heart">
+
+    ♡
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<script>
+
+
+/* =========================================
+   ПЕРЕКЛЮЧЕНИЕ СТРАНИЦ
+========================================= */
+
+function showScreen(number) {
+
+    document
+        .querySelectorAll('.screen')
+        .forEach(screen => {
+
+            screen.classList.remove(
+                'active'
+            );
+
+        });
+
+
+    document
+        .getElementById(
+            'screen' + number
+        )
+        .classList.add(
+            'active'
+        );
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: 'smooth'
+
+    });
+
+}
+
+
+
+/* =========================================
+   КНОПКА НЕТ
+========================================= */
+
+const yesButton =
+    document.getElementById(
+        'yesButton'
+    );
+
+const noButton =
+    document.getElementById(
+        'noButton'
+    );
+
+
+let noCount = 0;
+
+
+const noTexts = [
+
+    'Нет',
+
+    'Ты уверена?',
+
+    'Подумай ещё ❤️',
+
+    'Может всё-таки да?',
+
+    'Не торопись',
+
+    'Я всё ещё надеюсь',
+
+    'А вдруг да?',
+
+    'Попробуй ещё раз',
+
+    'Подумай 🥺',
+
+    'Последняя попытка'
+
+];
+
+
+/*
+   Кнопка двигается только
+   в пределах своей области.
+   
+   После перемещения "Согласна"
+   в центр она остаётся слева
+   от безопасной зоны кнопки "Нет".
+*/
+
+const positions = [
+
+    {
+        x: 70,
+        y: 34
+    },
+
+    {
+        x: 78,
+        y: 34
+    },
+
+    {
+        x: 70,
+        y: 62
+    },
+
+    {
+        x: 79,
+        y: 62
+    },
+
+    {
+        x: 73,
+        y: 25
+    },
+
+    {
+        x: 83,
+        y: 48
+    },
+
+    {
+        x: 71,
+        y: 77
+    },
+
+    {
+        x: 81,
+        y: 76
+    },
+
+    {
+        x: 82,
+        y: 25
+    },
+
+    {
+        x: 73,
+        y: 49
+    }
+
+];
+
+
+function moveNo() {
+
+    noCount++;
+
+
+    /*
+       После первого нажатия
+       "Согласна" переезжает
+       в центр.
+    */
+
+    if (
+        noCount === 1
+    ) {
+
+        yesButton.classList.add(
+            'center'
+        );
+
+    }
+
+
+    /*
+       Меняем текст.
+    */
+
+    noButton.textContent =
+
+        noTexts[
+            noCount %
+            noTexts.length
+        ];
+
+
+    /*
+       Следующая позиция.
+    */
+
+    const position =
+
+        positions[
+            (noCount - 1)
+            %
+            positions.length
+        ];
+
+
+    noButton.style.left =
+
+        position.x + '%';
+
+
+    noButton.style.top =
+
+        position.y + '%';
+
+}
+
+
+/*
+   Компьютер.
+*/
+
+noButton.addEventListener(
+
+    'mouseenter',
+
+    moveNo
+
+);
+
+
+/*
+   Телефон.
+*/
+
+noButton.addEventListener(
+
+    'touchstart',
+
+    function(event) {
+
+        event.preventDefault();
+
+        moveNo();
+
+    },
+
+    {
+        passive: false
+    }
+
+);
+
+
+/*
+   Если всё-таки произошло
+   обычное нажатие.
+*/
+
+noButton.addEventListener(
+
+    'click',
+
+    function(event) {
+
+        event.preventDefault();
+
+        moveNo();
+
+    }
+
+);
+
+
+
+/* =========================================
+   ВЫБОР НЕСКОЛЬКИХ ВАРИАНТОВ
+========================================= */
+
+document
+    .querySelectorAll('.option')
+    .forEach(option => {
+
+        option.addEventListener(
+
+            'click',
+
+            function() {
+
+                this.classList.toggle(
+                    'selected'
+                );
+
+            }
+
+        );
+
+    });
+
+
+
+/* =========================================
+   СЮРПРИЗ
+========================================= */
+
+let surpriseSelected = false;
+
+
+function toggleSurprise() {
+
+    surpriseSelected =
+
+        !surpriseSelected;
+
+
+    document
+        .getElementById('surprise')
+        .classList.toggle(
+
+            'active',
+
+            surpriseSelected
+
+        );
+
+}
+
+
+
+/* =========================================
+   ПОЛУЧИТЬ ВЫБОР
+========================================= */
+
+function getValues(id) {
+
+    return [
+
+        ...document.querySelectorAll(
+
+            '#' +
+            id +
+            ' .option.selected'
+
+        )
+
+    ].map(
+
+        option =>
+
+            option
+                .querySelector('strong')
+                .innerText
+
+    );
+
+}
+
+
+
+/* =========================================
+   ФОРМАТ ДАТЫ
+========================================= */
+
+function formatDate(value) {
+
+    const date =
+
+        new Date(
+            value +
+            'T00:00:00'
+        );
+
+
+    return date.toLocaleDateString(
+
+        'ru-RU',
+
+        {
+
+            day: 'numeric',
+
+            month: 'long',
+
+            year: 'numeric'
+
+        }
+
+    );
+
+}
+
+
+
+/* =========================================
+   ФИНАЛЬНАЯ СТРАНИЦА
+========================================= */
+
+function showFinal() {
+
+    const activities =
+        getValues(
+            'activities'
+        );
+
+
+    const food =
+        getValues(
+            'food'
+        );
+
+
+    const drinks =
+        getValues(
+            'drinks'
+        );
+
+
+    const mood =
+        getValues(
+            'mood'
+        );
+
+
+    const date =
+        document
+            .getElementById('date')
+            .value;
+
+
+    const time =
+        document
+            .getElementById('time')
+            .value;
+
+
+    const error =
+        document
+            .getElementById('error');
+
+
+    if (
+
+        activities.length === 0 ||
+
+        food.length === 0 ||
+
+        drinks.length === 0 ||
+
+        mood.length === 0 ||
+
+        !date ||
+
+        !time
+
+    ) {
+
+        error.innerText =
+
+            'Выбери хотя бы один вариант в каждом разделе ❤️';
+
+        return;
+
+    }
+
+
+    error.innerText = '';
+
+
+    document
+        .getElementById(
+            'resultActivities'
+        )
+        .innerText =
+
+        activities.join(', ');
+
+
+    document
+        .getElementById(
+            'resultFood'
+        )
+        .innerText =
+
+        food.join(', ');
+
+
+    document
+        .getElementById(
+            'resultDrinks'
+        )
+        .innerText =
+
+        drinks.join(', ');
+
+
+    document
+        .getElementById(
+            'resultMood'
+        )
+        .innerText =
+
+        mood.join(', ');
+
+
+    document
+        .getElementById(
+            'resultDate'
+        )
+        .innerText =
+
+        formatDate(date);
+
+
+    document
+        .getElementById(
+            'resultTime'
+        )
+        .innerText =
+
+        time;
+
+
+    document
+        .getElementById(
+            'resultSurprise'
+        )
+        .style.display =
+
+        surpriseSelected
+            ? 'block'
+            : 'none';
+
+
+    showScreen(4);
+
+}
+
+</script>
+
+</body>
+</html>
